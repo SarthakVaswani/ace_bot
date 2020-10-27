@@ -89,9 +89,8 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey();
   List<String> _data = [];
-
   static const String BOT_URL =
-      "https://acebot01.herokuapp.com/bot"; // replace with server address
+      "https://acebot01.herokuapp.com"; // replace with server address
   TextEditingController _queryController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -146,11 +145,6 @@ class _ChatScreenState extends State<ChatScreen> {
     );
   }
 
-  void _insertSingleItem(String message) {
-    _data.add(message);
-    _listKey.currentState.insertItem(_data.length - 1);
-  }
-
   http.Client _getClient() {
     return http.Client();
   }
@@ -175,25 +169,30 @@ class _ChatScreenState extends State<ChatScreen> {
       }
     }
   }
-}
 
-Widget _buildItem(String item, Animation animation, int index) {
-  bool mine = item.endsWith("<bot>");
-  return SizeTransition(
-      sizeFactor: animation,
-      child: Padding(
-        padding: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
-        child: Container(
-            alignment: mine ? Alignment.topLeft : Alignment.topRight,
-            child: Bubble(
-              nip: mine ? BubbleNip.leftTop : BubbleNip.rightTop,
-              elevation: 10,
-              shadowColor: Colors.black,
-              nipHeight: 25,
-              radius: Radius.circular(14),
-              child: Text(item.replaceAll("<bot>", "")),
-              color: mine ? Color(0xffFFFFFF) : Color(0xff55EFC4),
-              padding: BubbleEdges.all(10),
-            )),
-      ));
+  void _insertSingleItem(String message) {
+    _data.add(message);
+    _listKey.currentState.insertItem(_data.length - 1);
+  }
+
+  Widget _buildItem(String item, Animation animation, int index) {
+    bool mine = item.endsWith("<bot>");
+    return SizeTransition(
+        sizeFactor: animation,
+        child: Padding(
+          padding: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+          child: Container(
+              alignment: mine ? Alignment.topLeft : Alignment.topRight,
+              child: Bubble(
+                nip: mine ? BubbleNip.leftTop : BubbleNip.rightTop,
+                elevation: 10,
+                shadowColor: Colors.black,
+                nipHeight: 25,
+                radius: Radius.circular(14),
+                child: Text(item.replaceAll("<bot>", "")),
+                color: mine ? Color(0xffFFFFFF) : Color(0xff55EFC4),
+                padding: BubbleEdges.all(10),
+              )),
+        ));
+  }
 }
