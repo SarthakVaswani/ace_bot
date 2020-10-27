@@ -91,7 +91,7 @@ class _ChatScreenState extends State<ChatScreen> {
   List<String> _data = [];
 
   static const String BOT_URL =
-      "https://vipsbot48.herokuapp.com"; // replace with server address
+      "https://acebot01.herokuapp.com/bot"; // replace with server address
   TextEditingController _queryController = TextEditingController();
   @override
   Widget build(BuildContext context) {
