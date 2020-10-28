@@ -1,4 +1,4 @@
-pip install flask gunicorn
+#pip install flask gunicorn
 
 from flask import Flask, jsonify,request
 import time
