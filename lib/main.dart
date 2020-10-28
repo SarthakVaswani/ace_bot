@@ -90,7 +90,7 @@ class _ChatScreenState extends State<ChatScreen> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey();
   List<String> _data = [];
   static const String BOT_URL =
-      "https://acebot01.herokuapp.com/"; // replace with server address
+      "https://acebot01.herokuapp.com/bot"; // replace with server address
   TextEditingController _queryController = TextEditingController();
   @override
   Widget build(BuildContext context) {
@@ -155,7 +155,7 @@ class _ChatScreenState extends State<ChatScreen> {
       var client = _getClient();
       try {
         client.post(
-          "https://acebot01.herokuapp.com/bot",
+          BOT_URL,
           body: {"query": _queryController.text},
         )..then((response) {
             Map<String, dynamic> data = jsonDecode(response.body);
