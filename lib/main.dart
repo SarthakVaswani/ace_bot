@@ -155,7 +155,7 @@ class _ChatScreenState extends State<ChatScreen> {
       var client = _getClient();
       try {
         client.post(
-          BOT_URL,
+          "https://acebot01.herokuapp.com/bot",
           body: {"query": _queryController.text},
         )..then((response) {
             Map<String, dynamic> data = jsonDecode(response.body);
