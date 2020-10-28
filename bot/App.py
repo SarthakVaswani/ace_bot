@@ -7,7 +7,8 @@ app = Flask(__name__);
 def response():
     query = dict(request.form)['query']
     res = query + " " + time.ctime()
-    return jsonify({"response" : res})
+    #return jsonify({"response" : res})
+    return Hello
 if __name__=="__main__":
     app.run(host="0.0.0.0",)
 
