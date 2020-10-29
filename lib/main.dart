@@ -31,32 +31,34 @@ class Intro extends StatefulWidget {
 class _IntroState extends State<Intro> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        child: Align(
+    return SafeArea(
+      child: Scaffold(
+        body: Align(
           alignment: Alignment.bottomCenter,
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(top: 200.0, left: 10, right: 10),
-                child: FadeAnimatedTextKit(
-                  repeatForever: true,
-                  text: [
-                    'Chat Bot',
-                    'More than an App',
-                  ],
-                  textStyle: TextStyle(
-                      color: Color(0xffc7ecee),
-                      fontSize: 45,
-                      fontWeight: FontWeight.bold),
+                padding: EdgeInsets.only(top: 200.0),
+                child: Container(
+                  child: FadeAnimatedTextKit(
+                    repeatForever: true,
+                    text: [
+                      'Chat Bot',
+                      'More than an App',
+                    ],
+                    textStyle: TextStyle(
+                        color: Color(0xffc7ecee),
+                        fontSize: 35,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 200.0),
                 child: MaterialButton(
                   elevation: 15,
-                  height: 50,
-                  minWidth: 220,
+                  height: 44,
+                  minWidth: 200,
                   color: Color(0xffff6b81),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(15)),
@@ -129,6 +131,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     ],
                   ),
                   child: TextField(
+                    autofocus: true,
                     textAlign: TextAlign.center,
                     decoration: InputDecoration(
                       border: InputBorder.none,
@@ -190,8 +193,7 @@ class _ChatScreenState extends State<ChatScreen> {
               alignment: mine ? Alignment.topLeft : Alignment.topRight,
               child: Bubble(
                 nip: mine ? BubbleNip.leftTop : BubbleNip.rightTop,
-                elevation: 10,
-                shadowColor: Colors.black,
+                elevation: 7,
                 nipHeight: 24,
                 radius: Radius.circular(14),
                 child: Text(item.replaceAll("<bot>", "")),
