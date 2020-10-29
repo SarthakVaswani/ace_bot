@@ -92,25 +92,30 @@ class _ChatScreenState extends State<ChatScreen> {
   static const String BOT_URL =
       "https://man-o-man.herokuapp.com/bot"; // replace with server address
   TextEditingController _queryController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Stack(
+    return SafeArea(
+      child: Scaffold(
+        body: Stack(
           children: <Widget>[
-            AnimatedList(
-                // key to call remove and insert from anywhere
-                key: _listKey,
-                initialItemCount: _data.length,
-                itemBuilder:
-                    (BuildContext context, int index, Animation animation) {
-                  return _buildItem(_data[index], animation, index);
-                }),
+            Padding(
+              padding: const EdgeInsets.only(top: 8.0) +
+                  EdgeInsets.symmetric(horizontal: 12),
+              child: AnimatedList(
+                  scrollDirection: Axis.vertical,
+                  // key to call remove and insert from anywhere
+                  key: _listKey,
+                  initialItemCount: _data.length,
+                  itemBuilder:
+                      (BuildContext context, int index, Animation animation) {
+                    return _buildItem(_data[index], animation, index);
+                  }),
+            ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
+                padding: const EdgeInsets.symmetric(horizontal: 5),
                 child: Container(
                   decoration: BoxDecoration(
                     color: Color(0xffFF757B),
@@ -180,14 +185,14 @@ class _ChatScreenState extends State<ChatScreen> {
     return SizeTransition(
         sizeFactor: animation,
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 8),
           child: Container(
               alignment: mine ? Alignment.topLeft : Alignment.topRight,
               child: Bubble(
                 nip: mine ? BubbleNip.leftTop : BubbleNip.rightTop,
                 elevation: 10,
                 shadowColor: Colors.black,
-                nipHeight: 25,
+                nipHeight: 24,
                 radius: Radius.circular(14),
                 child: Text(item.replaceAll("<bot>", "")),
                 color: mine ? Color(0xffFFFFFF) : Color(0xff55EFC4),
