@@ -92,7 +92,7 @@ class _ChatScreenState extends State<ChatScreen> {
   final GlobalKey<AnimatedListState> _listKey = GlobalKey();
   List<String> _data = [];
   static const String BOT_URL =
-      "https://man-o-man.herokuapp.com/bot"; // replace with server address
+      "https://cf775b3a38a3.ngrok.io/bot"; // replace with server address
   TextEditingController _queryController = TextEditingController();
 
   @override
