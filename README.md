@@ -1,6 +1,6 @@
 # ace_bot
 
-A new Flutter project.
+Empathetic Chat Bot which can help users in dealing with emotional stress
 
 ## Getting Started
 
