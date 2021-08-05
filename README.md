@@ -5,12 +5,11 @@ Empathetic Chat Bot which can help users in dealing with emotional stress
 Empathetic Bot
 
 Team Members:
-	Sarthak Vaswani(Mobile App)
-	Kirtivardhan Singh(API)
-	Dev Verma(AI Model)
+- Sarthak Vaswani
+- Kirtivardhan Singh
+- Dev Verma
 	
-	
-Title: Combining multiple AI models to implement an AI most suitable for the creation of a personalized conversational Bot that can help users in dealing with emotional stress and anxiety. 
+## Title: Combining multiple AI models to implement an AI most suitable for the creation of a personalized conversational Bot that can help users in dealing with emotional stress and anxiety. 
 
 Abstract:
 
